@@ -1,0 +1,54 @@
+﻿<Window x:Class="MyTeacherAssistant.ViewLayer.CrearGrupo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyTeacherAssistant.ViewLayer"
+        mc:Ignorable="d"
+        Title="Crear Grupo" Height="285.436" Width="345.631">
+
+    <StackPanel Height="255" VerticalAlignment="Top" Margin="0,0,0,-1">
+
+        <Grid Name="GrirdGrupos">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="70"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <TextBlock Text="Nombre Grupo: " Margin="10" Grid.Column="0" Grid.Row="1"></TextBlock>
+            <TextBlock Text="Aleatorio: " Margin="10" Grid.Column="0" Grid.Row="2"></TextBlock>
+            <TextBlock Text="Numero de integrantes: " Margin="10" Grid.Column="0" Grid.Row="3"></TextBlock>
+            <TextBlock Text="Seleccion: " Margin="10" Grid.Column="0" Grid.Row="4"></TextBlock>
+            <TextBlock Text="Ingrese # Grupo por Alumno: " Margin="10" Grid.Column="0" Grid.Row="5"></TextBlock>
+
+            <TextBox Name="NombreGrupoTbx" Text="{Binding NombreGrupo}" Margin="10" Grid.Column="1" Grid.Row="1"></TextBox>
+            <TextBox Name="NumeroIntegrantesTbx" Text="{Binding NumIntegrantes}" Margin="10" Grid.Column="1" Grid.Row="3" ></TextBox>
+            <DataGrid 
+                Name="AlumnosGrid" 
+                HorizontalAlignment="Center" 
+                Grid.Column="1" Grid.Row="5" 
+                VerticalAlignment="Center"
+                Loaded="AlumnosGrid_Loaded"/>
+        </Grid>
+        <Grid Name="botones" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" ></ColumnDefinition>
+                <ColumnDefinition Width="Auto"  ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button HorizontalAlignment="Center" Margin="10,12,10,9" x:Name="GuardarBtn" Width="74" Content="Guardar" Grid.Column="0" Click="GuardarBtn_Click"/>
+            <Button HorizontalAlignment="Center" Margin="10,12,10,9" x:Name="CancelarBtn" Width="74" Content="Cancelar" Grid.Column="1" Click="CancelarBtn_Click"/>
+        </Grid>
+    </StackPanel>
+
+</Window>
