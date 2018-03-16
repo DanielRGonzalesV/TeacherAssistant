@@ -23,6 +23,19 @@
                 </ListView.View>
             </ListView>
         </Grid>
+
+        <Grid Name="botones" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="350" ></ColumnDefinition>
+                <ColumnDefinition Width="Auto" MinWidth="350"  ></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button HorizontalAlignment="Left" Margin="24,12,24,9" x:Name="AgregarAlumnoBtn" Width="98" Content="Agregar Alumno..." Grid.Column="0" Click="AgregarAlumnoBtn_Click"/>
+            <Button HorizontalAlignment="Right" Margin="16,12,16,9" x:Name="LogoutBtn" Width="74" Content="Logout" Grid.Column="1" Click="LogOutBtn_Click"/>
+        </Grid>
     </StackPanel>
 
 

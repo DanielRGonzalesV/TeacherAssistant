@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace MyTeacherAssistant.ViewLayer
 {
     /// <summary>
-    /// Interaction logic for PagePrincipalAlumno.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class PagePrincipalAlumno : Page
+    public partial class Page1 : Page
     {
-        public PagePrincipalAlumno()
+        public Page1()
         {
             InitializeComponent();
-        }
-
-        private void LogOutBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void AgregarAlumnoBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
