@@ -27,15 +27,15 @@ namespace MyTeacherAssistant.ViewLayer
         private void AlumnosGrid_Loaded(object sender, RoutedEventArgs e)
         {
 
-            // ... Create a List of objects.
-            var items = new List<DataLayer.Alumno>();
-            items.Add(new DataLayer.Alumno("Daniel", "Gonzales"));
-            items.Add(new DataLayer.Alumno("Alvaro", "Montecinos"));
-            items.Add(new DataLayer.Alumno("Marcelo", "Ucatec"));
+            //// ... Create a List of objects.
+            //var items = new List<DataLayer.Alumno>();
+            //items.Add(new DataLayer.Alumno("Daniel", "Gonzales"));
+            //items.Add(new DataLayer.Alumno("Alvaro", "Montecinos"));
+            //items.Add(new DataLayer.Alumno("Marcelo", "Ucatec"));
 
-            // ... Assign ItemsSource of DataGrid.
-            var grid = sender as DataGrid;
-            grid.ItemsSource = items;
+            //// ... Assign ItemsSource of DataGrid.
+            //var grid = sender as DataGrid;
+            //grid.ItemsSource = items;
         }
 
         private void GuardarBtn_Click(object sender, RoutedEventArgs e)
