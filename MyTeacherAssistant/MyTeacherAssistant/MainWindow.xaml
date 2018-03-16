@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="700">
     <Grid>
-        <Frame Name="mainWinFrame" NavigationUIVisibility="Hidden" Source="ViewLayer/PagePrincipalAlumno.xaml">
+        <Frame Name="mainWinFrame" NavigationUIVisibility="Hidden" Source="ViewLayer/PageLogin.xaml">
         </Frame>
 
     </Grid>

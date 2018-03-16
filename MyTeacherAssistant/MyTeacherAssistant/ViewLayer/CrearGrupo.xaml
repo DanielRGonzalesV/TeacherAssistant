@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTeacherAssistant.ViewLayer"
         mc:Ignorable="d"
-        Title="Crear Grupo" Height="285.436" Width="345.631">
+        Title="Crear Grupo" Height="305.825" Width="345.631">
 
     <StackPanel Height="255" VerticalAlignment="Top" Margin="0,0,0,-1">
 
@@ -21,20 +21,24 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+
 
             </Grid.RowDefinitions>
             <TextBlock Text="Nombre Grupo: " Margin="10" Grid.Column="0" Grid.Row="1"></TextBlock>
-            <TextBlock Text="Aleatorio: " Margin="10" Grid.Column="0" Grid.Row="2"></TextBlock>
-            <TextBlock Text="Numero de integrantes: " Margin="10" Grid.Column="0" Grid.Row="3"></TextBlock>
-            <TextBlock Text="Seleccion: " Margin="10" Grid.Column="0" Grid.Row="4"></TextBlock>
-            <TextBlock Text="Ingrese # Grupo por Alumno: " Margin="10" Grid.Column="0" Grid.Row="5"></TextBlock>
+            <TextBlock Text="Nombre Tarea: " Margin="10" Grid.Column="0" Grid.Row="2"></TextBlock>
+            <TextBlock Text="Aleatorio: " Margin="10" Grid.Column="0" Grid.Row="3"></TextBlock>
+            <TextBlock Text="Numero de integrantes: " Margin="10" Grid.Column="0" Grid.Row="4"></TextBlock>
+            <TextBlock Text="Seleccion: " Margin="10" Grid.Column="0" Grid.Row="5"></TextBlock>
+            <TextBlock Text="Ingrese # Grupo por Alumno: " Margin="10" Grid.Column="0" Grid.Row="6"></TextBlock>
 
             <TextBox Name="NombreGrupoTbx" Text="{Binding NombreGrupo}" Margin="10" Grid.Column="1" Grid.Row="1"></TextBox>
-            <TextBox Name="NumeroIntegrantesTbx" Text="{Binding NumIntegrantes}" Margin="10" Grid.Column="1" Grid.Row="3" ></TextBox>
+            <TextBox Name="NombretareaTbx" Text="{Binding NombreTarea}" Margin="10" Grid.Column="1" Grid.Row="2"></TextBox>
+            <TextBox Name="NumeroIntegrantesTbx" Text="{Binding NumIntegrantes}" Margin="10" Grid.Column="1" Grid.Row="4" ></TextBox>
             <DataGrid 
                 Name="AlumnosGrid" 
                 HorizontalAlignment="Center" 
-                Grid.Column="1" Grid.Row="5" 
+                Grid.Column="1" Grid.Row="6" 
                 VerticalAlignment="Center"
                 Loaded="AlumnosGrid_Loaded"/>
         </Grid>
