@@ -55,8 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BussinesLayer\Validaciones.cs" />
+    <Compile Include="DataLayer\AdminDB.cs" />
     <Compile Include="DataLayer\Alumno.cs" />
     <Compile Include="DataLayer\Docente.cs" />
+    <Compile Include="DataLayer\EntidadDocente.cs" />
     <Compile Include="DataLayer\Persona.cs" />
     <Compile Include="ViewLayer\CrearGrupo.xaml.cs">
       <DependentUpon>CrearGrupo.xaml</DependentUpon>
@@ -119,12 +122,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BussinesLayer\" />
-    <Folder Include="DataLayer\Basedatos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="login-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DataLayer\DataLayer.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
