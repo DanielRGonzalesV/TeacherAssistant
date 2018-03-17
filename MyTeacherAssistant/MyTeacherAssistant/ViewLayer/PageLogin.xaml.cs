@@ -27,15 +27,25 @@ namespace MyTeacherAssistant.ViewLayer
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
+            BussinesLayer.Validaciones valida = new BussinesLayer.Validaciones();
+            if (valida.validarLogin(UsernameTbx, PasswordBox))
+            {
 
-            // Instantiate the page to navigate to
-            PagePrincipalAlumno page = new PagePrincipalAlumno();
+                // Instantiate the page to navigate to
+                PagePrincipalAlumno page = new PagePrincipalAlumno();
 
-            // Navigate to the page, using the NavigationService
-            this.NavigationService.Navigate(page);
+                // Navigate to the page, using the NavigationService
+                this.NavigationService.Navigate(page);
 
-            //// Force WPF to download this page again
-            //this.NavigationService.Refresh();
+                //// Force WPF to download this page again
+                //this.NavigationService.Refresh();
+
+            }
+            else {
+                mensaje
+            }
+
+
         }
 
         private void cerrarBtn_Click(object sender, RoutedEventArgs e)
