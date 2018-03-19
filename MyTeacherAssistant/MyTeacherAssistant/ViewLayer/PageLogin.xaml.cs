@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTeacherAssistant.DataLayer.DAOLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,22 +29,34 @@ namespace MyTeacherAssistant.ViewLayer
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             BussinesLayer.Validaciones valida = new BussinesLayer.Validaciones();
-            if (valida.validarLogin(UsernameTbx, PasswordBox))
+
+            DocenteDA docente = new DocenteDA();
+
+            if (docente.login("juan", "123"))
             {
-
-                // Instantiate the page to navigate to
-                PagePrincipalAlumno page = new PagePrincipalAlumno();
-
-                // Navigate to the page, using the NavigationService
-                this.NavigationService.Navigate(page);
-
-                //// Force WPF to download this page again
-                //this.NavigationService.Refresh();
-
+                MessageBox.Show("Entra");
             }
             else {
-                mensaje
+                MessageBox.Show("falla");
             }
+
+
+            //if (valida.validarLogin(UsernameTbx, PasswordBox))
+            //{
+
+            //    // Instantiate the page to navigate to
+            //    PagePrincipalAlumno page = new PagePrincipalAlumno();
+
+            //    // Navigate to the page, using the NavigationService
+            //    this.NavigationService.Navigate(page);
+
+            //    //// Force WPF to download this page again
+            //    //this.NavigationService.Refresh();
+
+            //}
+            //else {
+            //    //mensaje
+            //}
 
 
         }

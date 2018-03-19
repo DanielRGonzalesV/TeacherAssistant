@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTeacherAssistant.DataLayer.EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,10 @@ namespace MyTeacherAssistant.BussinesLayer
     {
         internal bool validarLogin(TextBox usernameTbx, PasswordBox passwordBox)
         {
-            DataLayer.EntidadDocente docente = new DataLayer.EntidadDocente();
-            return docente.getLogin(usernameTbx, passwordBox);
-            throw new NotImplementedException();
-
+            //Docente docente = new Docente();
+            //return docente.getLogin(usernameTbx, passwordBox);
+            //throw new NotImplementedException();
+            return true;
         }
     }
 }

@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.4\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -56,11 +60,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BussinesLayer\Validaciones.cs" />
-    <Compile Include="DataLayer\AdminDB.cs" />
-    <Compile Include="DataLayer\Alumno.cs" />
-    <Compile Include="DataLayer\Docente.cs" />
-    <Compile Include="DataLayer\EntidadDocente.cs" />
-    <Compile Include="DataLayer\Persona.cs" />
+    <Compile Include="DataLayer\ConnectionLayer\Conexion.cs" />
+    <Compile Include="DataLayer\DAOLayer\AlumnoDA.cs" />
+    <Compile Include="DataLayer\DAOLayer\AsignacionDA.cs" />
+    <Compile Include="DataLayer\DAOLayer\DocenteDA.cs" />
+    <Compile Include="DataLayer\DAOLayer\Persona.cs" />
+    <Compile Include="DataLayer\EntityLayer\Alumno.cs" />
+    <Compile Include="DataLayer\EntityLayer\Docente.cs" />
+    <Compile Include="DataLayer\EntityLayer\Grupo.cs" />
+    <Compile Include="DataLayer\EntityLayer\Tareas.cs" />
     <Compile Include="ViewLayer\CrearGrupo.xaml.cs">
       <DependentUpon>CrearGrupo.xaml</DependentUpon>
     </Compile>
@@ -125,9 +133,6 @@
   <ItemGroup />
   <ItemGroup>
     <Resource Include="login-user-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="DataLayer\DataLayer.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
