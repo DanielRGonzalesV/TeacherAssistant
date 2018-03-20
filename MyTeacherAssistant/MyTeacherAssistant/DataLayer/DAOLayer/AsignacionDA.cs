@@ -59,7 +59,7 @@ namespace MyTeacherAssistant.DataLayer.DAOLayer
             set { fechafin = value; }
         }
 
-        public int insertar(Tareas tarea, Grupo grupo, int[] idAlumnos)
+        public int insertar(Tareas tarea, Grupo grupo, int[] idAlumnos)//aqui
         {
             MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO tarea(nombre_tarea, descripcion_tarea, fechainicio_tarea, fechafin_tarea, estado_tarea) VALUES ('{0}','{1}','{2}','{3}')", tarea.Nombre, tarea.Descripcion, tarea.Fechainicio, tarea.Fechafin, "ACTIVO"), Conexion.ObtenerConexion());
             MySqlCommand com = new MySqlCommand(string.Format("SELECT MAX(id_tarea) AS id_tarea FROM tarea"), Conexion.ObtenerConexion());

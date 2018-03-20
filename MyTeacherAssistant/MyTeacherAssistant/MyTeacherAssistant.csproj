@@ -59,6 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BussinesLayer\FachadaAssistantTeacher.cs" />
     <Compile Include="BussinesLayer\Validaciones.cs" />
     <Compile Include="DataLayer\ConnectionLayer\Conexion.cs" />
     <Compile Include="DataLayer\DAOLayer\AlumnoDA.cs" />
@@ -69,6 +70,9 @@
     <Compile Include="DataLayer\EntityLayer\Docente.cs" />
     <Compile Include="DataLayer\EntityLayer\Grupo.cs" />
     <Compile Include="DataLayer\EntityLayer\Tareas.cs" />
+    <Compile Include="ViewLayer\AgregarAlumno.xaml.cs">
+      <DependentUpon>AgregarAlumno.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewLayer\CrearGrupo.xaml.cs">
       <DependentUpon>CrearGrupo.xaml</DependentUpon>
     </Compile>
@@ -90,6 +94,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ViewLayer\AgregarAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewLayer\CrearGrupo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

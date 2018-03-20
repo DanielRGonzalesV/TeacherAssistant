@@ -38,7 +38,7 @@ namespace MyTeacherAssistant.DataLayer.DAOLayer
             List<Alumno> _lista = new List<Alumno>();
 
             MySqlCommand _comando = new MySqlCommand(String.Format
-                 ("SELECT nombre_alumno, apellido_alumno, ci_alumno FROM alumnos WHERE estado_alumno = 'ACTIVO'"), Conexion.ObtenerConexion());
+                 ("SELECT id_alumno, nombre_alumno, apellido_alumno, ci_alumno FROM alumnos WHERE estado_alumno = 'ACTIVO'"), Conexion.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {

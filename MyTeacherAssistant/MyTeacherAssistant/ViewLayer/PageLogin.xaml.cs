@@ -28,41 +28,29 @@ namespace MyTeacherAssistant.ViewLayer
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            BussinesLayer.Validaciones valida = new BussinesLayer.Validaciones();
+            //  BussinesLayer.Validaciones valida = new BussinesLayer.Validaciones();
 
+            string nombre = UsernameTbx.Text;
+            string password = PasswordTbx.Text;
             DocenteDA docente = new DocenteDA();
 
-            if (docente.login("juan", "123"))
+            if (docente.login(nombre, password))
             {
-                MessageBox.Show("Entra");
+                PagePrincipalAlumno page = new PagePrincipalAlumno();
+                this.NavigationService.Navigate(page);
+                MessageBox.Show("Bienvenido " + nombre);
             }
-            else {
-                MessageBox.Show("falla");
+            else
+            {
+                MessageBox.Show("Usuario o Password Incorrecto");
             }
-
-
-            //if (valida.validarLogin(UsernameTbx, PasswordBox))
-            //{
-
-            //    // Instantiate the page to navigate to
-            //    PagePrincipalAlumno page = new PagePrincipalAlumno();
-
-            //    // Navigate to the page, using the NavigationService
-            //    this.NavigationService.Navigate(page);
-
-            //    //// Force WPF to download this page again
+             //    //// Force WPF to download this page again
             //    //this.NavigationService.Refresh();
-
-            //}
-            //else {
-            //    //mensaje
-            //}
-
-
         }
 
         private void cerrarBtn_Click(object sender, RoutedEventArgs e)
         {
+            //Close();
             App.Current.Shutdown();
         }
     }

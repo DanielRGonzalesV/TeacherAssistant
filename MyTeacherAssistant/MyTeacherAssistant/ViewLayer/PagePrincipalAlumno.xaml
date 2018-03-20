@@ -12,13 +12,14 @@
     <StackPanel>
 
         <Grid Name="GridPrincipal">
-            <ListView Margin="10" Name="listaGeneral" ItemsSource="{Binding Alumnos}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListView Margin="10" Name="listaGeneral" ItemsSource="{Binding Alumnos}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="listaGeneral_SelectionChanged" MouseDoubleClick="lista_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding Id}" />
-                        <GridViewColumn Header="Nombre" Width="210" DisplayMemberBinding="{Binding Nombre}" />
-                        <GridViewColumn Header="Grupo" Width="210" DisplayMemberBinding="{Binding Grupo.Name}" />
-                        <GridViewColumn Header="Tarea" Width="210" DisplayMemberBinding="{Binding TargetNullValue.Name}" />
+                        <GridViewColumn Header="Nombre" Width="158" DisplayMemberBinding="{Binding Nombre}" />
+                        <GridViewColumn Header="Apellido" Width="158" DisplayMemberBinding="{Binding Apellido}" />
+                        <GridViewColumn Header="Grupo" Width="158" DisplayMemberBinding="{Binding Grupo.Name}" />
+                        <GridViewColumn Header="Tarea" Width="158" DisplayMemberBinding="{Binding TargetNullValue.Name}" />
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -34,6 +35,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Button HorizontalAlignment="Left" Margin="24,12,24,9" x:Name="AgregarAlumnoBtn" Width="98" Content="Agregar Alumno..." Grid.Column="0" Click="AgregarAlumnoBtn_Click"/>
+            <Button HorizontalAlignment="Center" Margin="24,12,24,9" x:Name="AsignarTareaBtn" Width="98" Content="Asignar Tarea..." Grid.Column="0" Click="AsignarTareaBtn_Click"/>
             <Button HorizontalAlignment="Right" Margin="16,12,16,9" x:Name="LogoutBtn" Width="74" Content="Logout" Grid.Column="1" Click="LogOutBtn_Click"/>
         </Grid>
     </StackPanel>

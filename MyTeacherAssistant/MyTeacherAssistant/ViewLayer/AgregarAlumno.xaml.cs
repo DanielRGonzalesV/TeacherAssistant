@@ -1,5 +1,4 @@
 ﻿using MyTeacherAssistant.BussinesLayer;
-using MyTeacherAssistant.DataLayer.EntityLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,36 +16,29 @@ using System.Windows.Shapes;
 namespace MyTeacherAssistant.ViewLayer
 {
     /// <summary>
-    /// Interaction logic for CrearGrupo.xaml
+    /// Interaction logic for AgregarAlumno.xaml
     /// </summary>
-    public partial class CrearGrupo : Window
+    public partial class AgregarAlumno : Window
     {
-
         FachadaAssistantTeacher fachada = new FachadaAssistantTeacher();
-        public List<Alumno> alumnos = new List<Alumno>();
 
-        public CrearGrupo()
+        public AgregarAlumno()
         {
             InitializeComponent();
-            actualizarListView();
         }
-
 
         private void GuardarBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            string nombre = NombreTbx.Text;
+            string apellido = ApellidoTbx.Text;
+            string ci = CiTbx.Text;
+            fachada.insertarAlumno(nombre, apellido, ci);
+            this.Close(); 
         }
 
         private void CancelarBtn_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void actualizarListView()
-        {
-            alumnos = fachada.getAlumnos();
-            listaSeleccion.ItemsSource = alumnos;
-            listaSeleccion.Items.Refresh();
+            this.Close();
         }
     }
 }
