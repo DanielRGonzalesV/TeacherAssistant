@@ -23,9 +23,20 @@
             <TextBlock Text="Login " Margin="10" Grid.Column="0" Grid.Row="1"></TextBlock>
             <TextBlock Text="Username: " Margin="10" Grid.Column="0" Grid.Row="2"></TextBlock>
             <TextBlock Text="Password: " Margin="10" Grid.Column="0" Grid.Row="3"></TextBlock>
-            <TextBox Name="UsernameTbx" Text="{Binding Username}" Margin="10" Grid.Column="1" Grid.Row="2" ></TextBox>
-            <TextBox Name="PasswordTbx" Text="{Binding Password}" Margin="10" Grid.Column="1" Grid.Row="3" ></TextBox>
+            <TextBox Name="UsernameTbx" Text="{Binding Username}" Margin="10,10,10,21" Grid.Column="1" Grid.Row="2" ></TextBox>
+            <!--<TextBox Name="PasswordTbx" Text="{Binding Password}" Margin="10" Grid.Column="1" Grid.Row="3" ></TextBox>-->
             <Image x:Name="login_user_icon_png" Margin="49,0,84,0" Source="/MyTeacherAssistant;component/login-user-icon.png" Stretch="Fill" Grid.Column="1" Grid.RowSpan="2"/>
+            <PasswordBox Name="PasswordBox" MaxLength="6" PasswordChar="X" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="224" Height="25">
+                <PasswordBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.045"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </PasswordBox.RenderTransform>
+            </PasswordBox>
+
         </Grid>
         <Grid x:Name="botones" Width="Auto" Height="50">
             <Grid.ColumnDefinitions>
@@ -35,8 +46,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button HorizontalAlignment="Center" Margin="10,12,10,9" x:Name="loginBtn" Width="74" Content="Log In" Grid.Column="0" Click="loginBtn_Click"/>
-            <Button HorizontalAlignment="Center" Margin="10,12,10,9" x:Name="cerrarBtn" Width="74" Content="Cerrar" Grid.Column="2" Click="cerrarBtn_Click"/>
+            <Button HorizontalAlignment="Center" Margin="44,11,45,10" x:Name="loginBtn" Width="74" Content="Log In" Grid.Column="1" Click="loginBtn_Click"/>
+            <Button HorizontalAlignment="Center" Margin="43,10,45,11" x:Name="cerrarBtn" Width="74" Content="Cerrar" Click="cerrarBtn_Click"/>
         </Grid>
     </StackPanel>
 </Page>

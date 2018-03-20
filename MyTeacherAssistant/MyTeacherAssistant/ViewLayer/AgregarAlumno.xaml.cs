@@ -1,4 +1,5 @@
 ﻿using MyTeacherAssistant.BussinesLayer;
+using MyTeacherAssistant.DataLayer.EntityLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace MyTeacherAssistant.ViewLayer
     public partial class AgregarAlumno : Window
     {
         FachadaAssistantTeacher fachada = new FachadaAssistantTeacher();
+        public List<Alumno> alumnos = new List<Alumno>();
 
         public AgregarAlumno()
         {
@@ -33,12 +35,21 @@ namespace MyTeacherAssistant.ViewLayer
             string apellido = ApellidoTbx.Text;
             string ci = CiTbx.Text;
             fachada.insertarAlumno(nombre, apellido, ci);
-            this.Close(); 
+            this.Close();
+            actualizarListView();
         }
 
         private void CancelarBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void actualizarListView()
+        {
+            alumnos = fachada.getAlumnos();
+            PagePrincipalAlumno page = new PagePrincipalAlumno();
+            page.listaGeneral.ItemsSource = alumnos;
+            page.listaGeneral.Items.Refresh();
         }
     }
 }

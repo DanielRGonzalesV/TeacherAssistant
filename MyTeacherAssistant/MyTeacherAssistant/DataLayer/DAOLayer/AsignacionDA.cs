@@ -61,23 +61,30 @@ namespace MyTeacherAssistant.DataLayer.DAOLayer
 
         public int insertar(Tareas tarea, Grupo grupo, int[] idAlumnos)//aqui
         {
-            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO tarea(nombre_tarea, descripcion_tarea, fechainicio_tarea, fechafin_tarea, estado_tarea) VALUES ('{0}','{1}','{2}','{3}')", tarea.Nombre, tarea.Descripcion, tarea.Fechainicio, tarea.Fechafin, "ACTIVO"), Conexion.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO tarea(nombre_tarea, descripcion_tarea, fechainicio_tarea, fechafin_tarea, estado_tarea) VALUES ('{0}','{1}','{2}','{3}','{4}')", tarea.Nombre, tarea.Descripcion, tarea.Fechainicio, tarea.Fechafin, "ACTIVO"), Conexion.ObtenerConexion());
             MySqlCommand com = new MySqlCommand(string.Format("SELECT MAX(id_tarea) AS id_tarea FROM tarea"), Conexion.ObtenerConexion());
             if (comando.ExecuteNonQuery() > 0)
+            {
+                tarea.Id = ((Int32)com.ExecuteScalar());
                 if (insertarGrupo(grupo, (Int32)com.ExecuteScalar(), idAlumnos) > 0)
                     return 1;
                 else
                     return 0;
+            }
             else
                 return 0;
         }
 
         public int insertarGrupo(Grupo grupo, int idTarea, int[] idAlumnos)
         {
-            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO grupo(nombre_grupo, tarea_id_tarea, estado_grup) VALUES ('{0}','{1}','{2}')", grupo.Nombre, idTarea, "ACTIVO"), Conexion.ObtenerConexion());
+            MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO grupo(nombre_grupo, tarea_id_tarea, estado_grupo) VALUES ('{0}','{1}','{2}')", grupo.Nombre, idTarea, "ACTIVO"), Conexion.ObtenerConexion());
             MySqlCommand com = new MySqlCommand(string.Format("SELECT MAX(id_grupo) AS id_grupo FROM grupo"), Conexion.ObtenerConexion());
             if (comando.ExecuteNonQuery() > 0)
-                return ((Int32)com.ExecuteScalar());//devuelve el id insertado
+            {
+                grupo.Id = ((Int32)com.ExecuteScalar());
+                insertarAsignacion(grupo.Id, idAlumnos);
+                    return 1;
+            }
             else
                 return 0;
         }
@@ -86,8 +93,9 @@ namespace MyTeacherAssistant.DataLayer.DAOLayer
         {
             for (int i = 0; i < idAlumnos.Length; i++)
             {
-                MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO asignaciongrupo(alumnos_id_alumno, grupo_id_grupo, estado_asig) VALUES ('{0}','{1}','{2}')", idGrupo, idAlumnos[i], "ACTIVO"), Conexion.ObtenerConexion());
+                MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO asignaciongrupo(alumnos_id_alumno, grupo_id_grupo, estado_asig) VALUES ('{0}','{1}','{2}')", idAlumnos[i], idGrupo, "ACTIVO"), Conexion.ObtenerConexion());
                 comando.ExecuteNonQuery();
+
             }
         }
 
@@ -96,7 +104,7 @@ namespace MyTeacherAssistant.DataLayer.DAOLayer
             List<AsignacionDA> lista = new List<AsignacionDA>();
 
             MySqlCommand _comando = new MySqlCommand(String.Format
-                 ("SELECT nombre_alumno, apellido_alumno, nombre_grupo, nombre_tarea, descripcion_tarea, fechainicio_tarea, fechafin_tarea FROM alumnos, grupo, tarea, asignaciongrupo WHERE id_alumno ='" + idAlumno + "' AND alumnos_id_alumno=id_grupo"), Conexion.ObtenerConexion());
+                 ("SELECT nombre_alumno, apellido_alumno, nombre_grupo, nombre_tarea, descripcion_tarea, fechainicio_tarea, fechafin_tarea FROM alumnos, grupo, tarea, asignaciongrupo WHERE id_alumno ='" + idAlumno + "' AND alumnos_id_alumno=id_alumno AND grupo_id_grupo = id_grupo AND tarea_id_tarea = id_tarea"), Conexion.ObtenerConexion());
             MySqlDataReader _reader = _comando.ExecuteReader();
             while (_reader.Read())
             {

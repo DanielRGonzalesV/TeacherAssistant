@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTeacherAssistant.ViewLayer"
         mc:Ignorable="d"
-        Title="Crear Grupo" Height="312.433" Width="345.631">
+        Title="Crear Grupo" Height="437.763" Width="345.631">
 
-    <StackPanel Height="255" VerticalAlignment="Top" Margin="0,0,0,-1">
+    <StackPanel Height="Auto" VerticalAlignment="Top" Margin="0,0,0,-1">
 
         <Grid Name="GrirdGrupos">
             <Grid.ColumnDefinitions>
@@ -26,12 +26,14 @@
             </Grid.RowDefinitions>
             <TextBlock Text="Nombre Grupo: " Margin="10" Grid.Column="0" Grid.Row="1"></TextBlock>
             <TextBlock Text="Nombre Tarea: " Margin="10" Grid.Column="0" Grid.Row="2"></TextBlock>
+            <TextBlock Text="Descripcion Tarea: " Margin="10" Grid.Column="0" Grid.Row="3"></TextBlock>
             
             <TextBlock Text="Seleccion: " Margin="10" Grid.Column="0" Grid.Row="5"></TextBlock>
             <TextBlock Text="Alumnos: " Margin="10" Grid.Column="2" Grid.Row="5"></TextBlock>
 
             <TextBox Name="NombreGrupoTbx" Text="{Binding NombreGrupo}" Margin="10" Grid.Column="1" Grid.Row="1"></TextBox>
-            <TextBox Name="NombretareaTbx" Text="{Binding NombreTarea}" Margin="10" Grid.Column="1" Grid.Row="2"></TextBox>
+            <TextBox Name="NombreTareaTbx" Text="{Binding NombreTarea}" Margin="10" Grid.Column="1" Grid.Row="2"></TextBox>
+            <TextBox Name="DescripciontareaTbx" Text="{Binding DescripcionTarea}" Margin="10" Grid.Column="1" Grid.Row="3"></TextBox>
         </Grid>
 
         <Grid Name="Alumnos" HorizontalAlignment="Center">
@@ -41,16 +43,23 @@
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <ListView Margin="10" Name="listaSeleccion" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Alumnos}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListView Margin="10" Name="listaSeleccion" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Alumnos}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="listaSeleccion_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding Id}" />
                         <GridViewColumn Header="Nombre" Width="100" DisplayMemberBinding="{Binding Nombre}" />
                         <GridViewColumn Header="Apellido" Width="100" DisplayMemberBinding="{Binding Apellido}" />
-                        <GridViewColumn Header="Seleccionar" Width="80" />
+                        <GridViewColumn Header="Seleccionar" Width="80">
+                            
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <!--<CheckBox Tag="{Binding ID}"/>-->
+                                    <!--<CheckBox Tag="{Binding IsChecked}" IsChecked="False"/>-->
+                                    <CheckBox Tag="{Binding ID}" IsChecked="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}, Path=IsSelected}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
 
-
-
+                        </GridViewColumn>
 
                     </GridView>
                 </ListView.View>

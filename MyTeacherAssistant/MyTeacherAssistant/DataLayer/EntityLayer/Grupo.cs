@@ -17,6 +17,11 @@ namespace MyTeacherAssistant.DataLayer.EntityLayer
             this.Nombre = nombre;
         }
 
+        public Grupo(string nombre)
+        {
+            this.Nombre = nombre;
+        }
+
         public Grupo()
         {
         }

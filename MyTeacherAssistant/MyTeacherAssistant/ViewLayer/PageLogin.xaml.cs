@@ -31,7 +31,7 @@ namespace MyTeacherAssistant.ViewLayer
             //  BussinesLayer.Validaciones valida = new BussinesLayer.Validaciones();
 
             string nombre = UsernameTbx.Text;
-            string password = PasswordTbx.Text;
+            string password = PasswordBox.Password.ToString();
             DocenteDA docente = new DocenteDA();
 
             if (docente.login(nombre, password))

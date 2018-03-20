@@ -1,4 +1,5 @@
 ﻿using MyTeacherAssistant.BussinesLayer;
+using MyTeacherAssistant.DataLayer.DAOLayer;
 using MyTeacherAssistant.DataLayer.EntityLayer;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace MyTeacherAssistant.ViewLayer
     {
 
         public List<Alumno> alumnos = new List<Alumno>();
+        public List<AsignacionDA> asignaciones = new List<AsignacionDA>();
         FachadaAssistantTeacher fachada = new FachadaAssistantTeacher();
 
         public PagePrincipalAlumno()
@@ -46,10 +48,10 @@ namespace MyTeacherAssistant.ViewLayer
 
         private void actualizarListView()
         {
-            alumnos = fachada.getAlumnos();
-            listaGeneral.ItemsSource = alumnos;
+            listaGeneral.ItemsSource = fachada.getAsignaciones();
             listaGeneral.Items.Refresh();
-        }
+
+    }
 
         private void lista_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

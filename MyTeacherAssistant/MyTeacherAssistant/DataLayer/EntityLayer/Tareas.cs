@@ -24,6 +24,14 @@ namespace MyTeacherAssistant.DataLayer.EntityLayer
             this.Fechafin = fechafin;
         }
 
+        public Tareas(string nombre, string descripcion, string fechainicio, string fechafin)
+        {
+            this.Nombre = nombre;
+            this.Descripcion = descripcion;
+            this.Fechainicio = fechainicio;
+            this.Fechafin = fechafin;
+        }
+
         public Tareas()
         {
         }

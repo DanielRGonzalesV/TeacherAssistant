@@ -12,14 +12,14 @@
     <StackPanel>
 
         <Grid Name="GridPrincipal">
-            <ListView Margin="10" Name="listaGeneral" ItemsSource="{Binding Alumnos}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="listaGeneral_SelectionChanged" MouseDoubleClick="lista_MouseDoubleClick">
+            <ListView Margin="10" Name="listaGeneral" ItemsSource="{Binding Asignaciones}" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionChanged="listaGeneral_SelectionChanged" MouseDoubleClick="lista_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding Id}" />
                         <GridViewColumn Header="Nombre" Width="158" DisplayMemberBinding="{Binding Nombre}" />
                         <GridViewColumn Header="Apellido" Width="158" DisplayMemberBinding="{Binding Apellido}" />
-                        <GridViewColumn Header="Grupo" Width="158" DisplayMemberBinding="{Binding Grupo.Name}" />
-                        <GridViewColumn Header="Tarea" Width="158" DisplayMemberBinding="{Binding TargetNullValue.Name}" />
+                        <GridViewColumn Header="Grupo" Width="158" DisplayMemberBinding="{Binding Grupo}" />
+                        <GridViewColumn Header="Tarea" Width="158" DisplayMemberBinding="{Binding Tarea}" />
                     </GridView>
                 </ListView.View>
             </ListView>
